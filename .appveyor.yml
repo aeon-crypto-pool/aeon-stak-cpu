@@ -24,9 +24,9 @@ build_script:
 
 test_script:
   - cd c:\aeon-stak-cpu\build\bin\Release
-  - dir
   - copy ..\..\..\config.txt .
-  - cd c:\aeon-stak-cpu
+  - copy ..\..\..\ReadMe.txt .
+  - tree /f
 #  - aeon-stak-cpu.exe
 
 artifacts:
