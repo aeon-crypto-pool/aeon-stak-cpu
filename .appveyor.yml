@@ -8,9 +8,10 @@ platform: x64
 clone_folder: c:\aeon-stak-cpu
 
 install:
-  - mkdir c:\aeon-stak-dep
-  - curl -sL https://github.com/fireice-uk/xmr-stak-dep/releases/download/v1/xmr-stak-dep.zip -o aeon-stak-dep.zip
-  - 7z x aeon-stak-dep.zip -o"c:\aeon-stak-dep" -y > nul
+  - if not exist "c:\aeon-stak-dep" (mkdir c:\aeon-stak-dep & curl -sL https://github.com/fireice-uk/xmr-stak-dep/releases/download/v1/xmr-stak-dep.zip -o aeon-stak-dep.zip & 7z x aeon-stak-dep.zip -o"c:\aeon-stak-dep" -y)
+  
+cache:
+    - c:\aeon-stak-dep
 
 build_script:
   - call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsMSBuildCmd.bat"
